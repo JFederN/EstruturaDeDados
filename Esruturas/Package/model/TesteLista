@@ -1,0 +1,32 @@
+package model;
+
+import java.util.Scanner;
+
+import util.ListaArray;
+
+public class TesteLista {
+	public static void main(String[] args) {
+		ListaArray lista = new ListaArray(5);
+		lista.adicionar(10,0);
+		lista.adicionar(20,1);
+		lista.adicionar(30,2);
+		lista.adicionar(50,3);
+		lista.adicionar(60,4);
+		
+		System.out.println("Digite o valor a ser inserido no array");
+		Scanner leia= new Scanner(System.in);
+		int num = leia.nextInt();
+		
+		System.out.println("Digite a posição a ser inserida no array");
+		leia= new Scanner(System.in);
+		int pos = leia.nextInt();
+		
+		lista.adicionar(num,pos);
+		
+		lista.imprimirLista();
+		//lista.remover(1);
+
+		//lista.imprimirLista();
+	}
+
+}
