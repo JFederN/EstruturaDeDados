@@ -1,0 +1,37 @@
+package model;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class AutomovelRep {
+	private final static String arquivoAutomoveis = "automoveis.txt";
+
+    public static void salvarAutomoveis(List<Automovel> automovel) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoAutomoveis))) {
+            for (Automovel auto : automovel) {
+            	writer.write(((Automovel) automovel).toFileString());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar produtos: " + e.getMessage());
+        }
+    }
+    public List<Automovel> carregarAutomovel() {
+        List<Automovel> produtos = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(arquivoAutomoveis))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                produtos.add(Automovel.fromFileString(linha));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo de produtos não encontrado. Será criado ao salvar novos produtos.");
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar produtos: " + e.getMessage());
+        }
+        return Collections.unmodifiableList(produtos);
+    }
+
+}
+
