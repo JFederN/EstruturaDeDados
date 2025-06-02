@@ -1,0 +1,11 @@
+package controller;
+
+import view.CadastroAutomoveisView;
+
+public class ControleGeral {
+    public static void main(String[] args) {
+        CadastroAutomoveisView view = new CadastroAutomoveisView();
+        ControlaAutomovel controller = new ControlaAutomovel(view);
+        controller.executar();
+    }
+}
