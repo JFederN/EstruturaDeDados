@@ -1,0 +1,67 @@
+package view;
+
+import java.util.Scanner;
+
+public class CadastroAutomoveisView {
+	
+	private Scanner scanner;
+	
+	public CadastroAutomoveisView() {
+        scanner = new Scanner(System.in);
+    }
+
+    public int exibirMenu() {
+        System.out.println("\n--- Menu ---");
+        System.out.println("1 - Incluir automóvel");
+        System.out.println("2 - Remover automóvel");
+        System.out.println("3 - Alterar dados de automóvel");
+        System.out.println("4 - Consultar automóvel por placa");
+        System.out.println("5 - Listar automóveis (ordenado)");
+        System.out.println("6 - Salvar e sair");
+        System.out.print("Escolha uma opção: ");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    public String lerPlaca() {
+        System.out.print("Placa: ");
+        return scanner.nextLine();
+    }
+
+    public String lerModelo() {
+        System.out.print("Modelo: ");
+        return scanner.nextLine();
+    }
+
+    public String lerMarca() {
+        System.out.print("Marca: ");
+        return scanner.nextLine();
+    }
+
+    public int lerAno() {
+        System.out.print("Ano: ");
+        return Integer.parseInt(scanner.nextLine());
+    }
+
+    public double lerValor() {
+        System.out.print("Valor: ");
+        return Double.parseDouble(scanner.nextLine());
+    }
+
+    public void mostrarMensagem(String mensagem) {
+        System.out.println(mensagem);
+    }
+
+    public void exibirAutomovel(String automovelInfo) {
+        System.out.println(automovelInfo);
+    }
+
+    public String lerCriterioOrdenacao() {
+        System.out.print("Ordenar por (placa/modelo/marca): ");
+        return scanner.nextLine().toLowerCase();
+    }
+
+    public void exibirListaAutomoveis(String lista) {
+        System.out.println("\n-- Lista de Automóveis --");
+        System.out.println(lista);
+    }
+}
